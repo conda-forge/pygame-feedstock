@@ -24,7 +24,7 @@ source:
     - patches/0009-skip-some-specific-warnings-on-linux-osx.patch
 
 build:
-  number: 0
+  number: 1
   script:
     # despite the name "_unix", this only works for linux, c.f.
     # https://github.com/pygame/pygame/blob/main/buildconfig/config_unix.py
