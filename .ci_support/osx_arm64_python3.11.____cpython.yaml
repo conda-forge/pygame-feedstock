@@ -1,0 +1,38 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- clangxx
+cxx_compiler_version:
+- '14'
+fontconfig:
+- '2'
+freetype:
+- '2'
+jpeg:
+- '9'
+libpng:
+- '1.6'
+macos_machine:
+- arm64-apple-darwin20.0.0
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.11.* *_cpython
+sdl2:
+- '2'
+sdl2_image:
+- '2'
+sdl2_mixer:
+- '2'
+sdl2_ttf:
+- '2'
+target_platform:
+- osx-arm64
+zlib:
+- '1.2'

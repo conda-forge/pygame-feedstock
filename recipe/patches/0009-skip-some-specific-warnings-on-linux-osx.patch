@@ -1,7 +1,7 @@
 From a76c9e6cf633b6a40184a2a24c690690ed6065b2 Mon Sep 17 00:00:00 2001
 From: Tobias Fischer <info@tobiasfischer.info>
 Date: Wed, 7 Dec 2022 07:24:01 +1000
-Subject: [PATCH 9/9] skip some specific warnings on linux/osx
+Subject: [PATCH 09/10] skip some specific warnings on linux/osx
 
 Co-Authored-By: H. Vetinari <h.vetinari@gmx.com>
 ---

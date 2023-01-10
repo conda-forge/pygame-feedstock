@@ -1,7 +1,7 @@
 From 56f5d00edbbc74a5fd3019d165ad5759c4a7bea8 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Wed, 20 Jul 2022 21:29:46 +0200
-Subject: [PATCH 6/9] add some more 'display' tags to tests & modules
+Subject: [PATCH 06/10] add some more 'display' tags to tests & modules
 
 ---
  test/base_test.py        |  16 +++++++

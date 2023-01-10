@@ -1,7 +1,7 @@
 From 23caeb8c2b56ee662b9b6915f6eae510337c5bcd Mon Sep 17 00:00:00 2001
 From: Tobias Fischer <info@tobiasfischer.info>
 Date: Wed, 7 Dec 2022 06:51:10 +1000
-Subject: [PATCH 7/9] mark docs test broken
+Subject: [PATCH 07/10] mark docs test broken
 
 ---
  test/docs_test.py | 2 ++
