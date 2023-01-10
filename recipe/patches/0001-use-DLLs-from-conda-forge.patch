@@ -1,7 +1,7 @@
 From 21c99189c993172cda5e5171829e8091f68537ff Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Sun, 17 Jul 2022 20:17:04 +0200
-Subject: [PATCH 1/9] use DLLs from conda-forge
+Subject: [PATCH 01/10] use DLLs from conda-forge
 
 ---
  buildconfig/config_win.py | 13 +++++++------

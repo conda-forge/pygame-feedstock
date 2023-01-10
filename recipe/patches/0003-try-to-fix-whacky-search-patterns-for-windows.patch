@@ -1,7 +1,7 @@
 From 13f50582204b0aa6e3dd8b749bfedbbf6d35102e Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Tue, 19 Jul 2022 19:32:47 +0200
-Subject: [PATCH 3/9] try to fix whacky search patterns for windows
+Subject: [PATCH 03/10] try to fix whacky search patterns for windows
 
 ---
  buildconfig/config_win.py | 28 +++++++++++++++-------------
@@ -40,7 +40,7 @@ index 6309a1c9..8e85a0fc 100644
 -    DEPS.add('FREETYPE', 'freetype', ['freetype'], r'freetype[-0-9]*\.dll$',
 -             find_header=r'ft2build\.h', find_lib=r'freetype[-0-9]*\.lib')
 +    DEPS.add('MIXER', 'SDL2_mixer', ['SDL2_mixer-[1-9].*'], r'(lib)?SDL2_mixer\.dll$',
-+             ['SDL'], find_header=r'SDL_mixer\.h')
++             ['SDL', 'vorbisfile'], find_header=r'SDL_mixer\.h')
 +    DEPS.add('PNG', 'png', ['libpng-[1-9].*'], r'(lib)?png\d*\.dll$', ['z'],
 +             find_header=r'png\.h', find_lib=r'(lib)?png\d*\.lib')
 +    DEPS.add('JPEG', 'jpeg', ['jpeg-9*'], r'(lib)?jpeg\.dll$',

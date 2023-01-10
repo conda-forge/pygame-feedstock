@@ -1,7 +1,7 @@
 From eaeb2c9cd0363e4eed0626b0838b2c72ca0be27f Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Tue, 19 Jul 2022 21:44:52 +0200
-Subject: [PATCH 4/9] do not copy DLLs
+Subject: [PATCH 04/10] do not copy DLLs
 
 ---
  setup.py | 4 ++--

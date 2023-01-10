@@ -1,7 +1,7 @@
 From be34b7c86bd065394b3cd5231089581ad6afd6c3 Mon Sep 17 00:00:00 2001
 From: Tobias Fischer <info@tobiasfischer.info>
 Date: Wed, 7 Dec 2022 07:01:04 +1000
-Subject: [PATCH 8/9] fix strict prototype
+Subject: [PATCH 08/10] fix strict prototype
 
 ---
  src_c/simd_blitters.h | 2 +-
