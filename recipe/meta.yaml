@@ -22,7 +22,7 @@ source:
     - patches/0007-mark-docs-test-broken.patch
     - patches/0008-fix-strict-prototype.patch
     - patches/0009-skip-some-specific-warnings-on-linux-osx.patch
-    - patches/0010-don-t-Werror-on-osx-arm.patch                              # [osx and arm64]
+    - patches/0010-don-t-Werror.patch
 
 build:
   number: 1
