@@ -1,4 +1,4 @@
-From eaeb2c9cd0363e4eed0626b0838b2c72ca0be27f Mon Sep 17 00:00:00 2001
+From b33f80dde08f0b865fcf4857fafc41d230f89800 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Tue, 19 Jul 2022 21:44:52 +0200
 Subject: [PATCH 04/10] do not copy DLLs
@@ -8,10 +8,10 @@ Subject: [PATCH 04/10] do not copy DLLs
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index 42ff6e80..3df1c359 100644
+index ce8df6a9..763d3b22 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -659,8 +659,8 @@ if sys.platform == 'win32' and not 'WIN32_DO_NOT_INCLUDE_DEPS' in os.environ:
+@@ -660,8 +660,8 @@ if sys.platform == 'win32' and not 'WIN32_DO_NOT_INCLUDE_DEPS' in os.environ:
          f = the_dlls[lib].replace('/', os.sep)
          if f == '_':
              print(f"WARNING, DLL for {lib} library not found.")
