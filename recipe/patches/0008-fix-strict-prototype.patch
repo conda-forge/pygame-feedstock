@@ -1,4 +1,4 @@
-From be34b7c86bd065394b3cd5231089581ad6afd6c3 Mon Sep 17 00:00:00 2001
+From 063e0311f4f394b4cdaf03b50121056c3479933d Mon Sep 17 00:00:00 2001
 From: Tobias Fischer <info@tobiasfischer.info>
 Date: Wed, 7 Dec 2022 07:01:04 +1000
 Subject: [PATCH 08/10] fix strict prototype
@@ -8,11 +8,11 @@ Subject: [PATCH 08/10] fix strict prototype
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src_c/simd_blitters.h b/src_c/simd_blitters.h
-index 36cb8c2a..2b196d66 100644
+index da0ecbb2..be7a05eb 100644
 --- a/src_c/simd_blitters.h
 +++ b/src_c/simd_blitters.h
-@@ -40,7 +40,7 @@ blit_blend_premultiplied_sse2(SDL_BlitInfo *info);
- #endif /* (defined(__SSE2__) || defined(PG_ENABLE_ARM_NEON)) */
+@@ -61,7 +61,7 @@ void
+ premul_surf_color_by_alpha_sse2(SDL_Surface *src, SDL_Surface *dst);
  
  int
 -pg_has_avx2();

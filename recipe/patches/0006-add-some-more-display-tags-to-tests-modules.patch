@@ -1,25 +1,25 @@
-From 56f5d00edbbc74a5fd3019d165ad5759c4a7bea8 Mon Sep 17 00:00:00 2001
+From 47b93a9a76824ec0118d541ae0f219ccf3485d17 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Wed, 20 Jul 2022 21:29:46 +0200
 Subject: [PATCH 06/10] add some more 'display' tags to tests & modules
 
 ---
  test/base_test.py        |  16 +++++++
- test/cursors_test.py     |   7 +++
+ test/cursors_test.py     |   8 ++++
  test/display_tags.py     |   1 +
  test/draw_test.py        |  52 ++++++++++++++++++--
  test/event_tags.py       |   1 +
  test/gfxdraw_tags.py     |   1 +
  test/image_test.py       |  12 +++++
  test/key_tags.py         |   1 +
- test/mixer_music_test.py |   3 ++
+ test/mixer_music_test.py |   4 ++
  test/mouse_tags.py       |   1 +
  test/pixelcopy_tags.py   |   1 +
  test/surface_test.py     | 100 +++++++++++++++++++++++++++++++++++++++
- test/surfarray_test.py   |  36 ++++++++++++++
+ test/surfarray_test.py   |  44 +++++++++++++++++
  test/time_test.py        |   4 ++
  test/video_tags.py       |   1 +
- 15 files changed, 233 insertions(+), 4 deletions(-)
+ 15 files changed, 243 insertions(+), 4 deletions(-)
  create mode 100644 test/display_tags.py
  create mode 100644 test/event_tags.py
  create mode 100644 test/gfxdraw_tags.py
@@ -29,7 +29,7 @@ Subject: [PATCH 06/10] add some more 'display' tags to tests & modules
  create mode 100644 test/video_tags.py
 
 diff --git a/test/base_test.py b/test/base_test.py
-index 53e6dbe0..eacc5b9e 100644
+index b11d2d68..2a3fb4bd 100644
 --- a/test/base_test.py
 +++ b/test/base_test.py
 @@ -524,6 +524,10 @@ class BaseModuleTest(unittest.TestCase):
@@ -43,7 +43,7 @@ index 53e6dbe0..eacc5b9e 100644
          # __doc__ (as of 2008-06-25) for pygame.base.quit:
  
          # pygame.quit(): return None
-@@ -587,6 +591,10 @@ class BaseModuleTest(unittest.TestCase):
+@@ -585,6 +589,10 @@ class BaseModuleTest(unittest.TestCase):
          self.assertEqual("你好", pygame.get_error())
  
      def test_init(self):
@@ -54,7 +54,7 @@ index 53e6dbe0..eacc5b9e 100644
          """Ensures init() works properly."""
          # Make sure nothing initialized.
          self.not_init_assertions()
-@@ -608,12 +616,20 @@ class BaseModuleTest(unittest.TestCase):
+@@ -606,12 +614,20 @@ class BaseModuleTest(unittest.TestCase):
          self.assertFalse(pygame.get_init())
  
      def test_get_init__after_init(self):
@@ -76,21 +76,21 @@ index 53e6dbe0..eacc5b9e 100644
          pygame.init()
          pygame.quit()
 diff --git a/test/cursors_test.py b/test/cursors_test.py
-index 9f26c40c..a877aff5 100644
+index 8132c513..a877aff5 100644
 --- a/test/cursors_test.py
 +++ b/test/cursors_test.py
-@@ -5,7 +5,10 @@ import pygame
+@@ -5,6 +5,10 @@ import pygame
  
  class CursorsModuleTest(unittest.TestCase):
      def test_compile(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          # __doc__ (as of 2008-06-25) for pygame.cursors.compile:
  
          # pygame.cursors.compile(strings, black, white,xor) -> data, mask
-@@ -216,6 +219,10 @@ class CursorsModuleTest(unittest.TestCase):
+@@ -215,6 +219,10 @@ class CursorsModuleTest(unittest.TestCase):
      ################################################################################
  
      def test_load_xbm(self):
@@ -109,7 +109,7 @@ index 00000000..93a1c469
 @@ -0,0 +1 @@
 +__tags__ = ["display"]
 diff --git a/test/draw_test.py b/test/draw_test.py
-index 6046da2d..ca7af035 100644
+index 5a5d8a8a..22f1f23e 100644
 --- a/test/draw_test.py
 +++ b/test/draw_test.py
 @@ -1530,6 +1530,10 @@ class LineMixin(BaseLineMixin):
@@ -226,7 +226,7 @@ index 6046da2d..ca7af035 100644
          """Tests if the aaline drawn contains any gaps.
  
          See: #512
-@@ -3544,8 +3582,11 @@ class AALinesMixin(BaseLineMixin):
+@@ -3543,8 +3581,11 @@ class AALinesMixin(BaseLineMixin):
                  bounds_rect = self.draw_aalines(**kwargs)
  
      def test_aalines__color(self):
@@ -239,7 +239,7 @@ index 6046da2d..ca7af035 100644
          Draws aalines around the border of the given surface and checks if all
          borders of the surface only contain the given color.
          """
-@@ -3557,8 +3598,11 @@ class AALinesMixin(BaseLineMixin):
+@@ -3556,8 +3597,11 @@ class AALinesMixin(BaseLineMixin):
                      self.assertEqual(color, expected_color, f"pos={pos}")
  
      def test_aalines__gaps(self):
@@ -267,10 +267,10 @@ index 00000000..93a1c469
 @@ -0,0 +1 @@
 +__tags__ = ["display"]
 diff --git a/test/image_test.py b/test/image_test.py
-index 6255ebed..e76ab8e7 100644
+index f81674ef..2b2a62fb 100644
 --- a/test/image_test.py
 +++ b/test/image_test.py
-@@ -363,6 +363,10 @@ class ImageModuleTest(unittest.TestCase):
+@@ -373,6 +373,10 @@ class ImageModuleTest(unittest.TestCase):
              os.remove(temp_filename)
  
      def test_save__to_fileobject_w_namehint_argument(self):
@@ -281,7 +281,7 @@ index 6255ebed..e76ab8e7 100644
          s = pygame.Surface((10, 10))
          s.fill((23, 23, 23))
          magic_hex = {}
-@@ -654,6 +658,10 @@ class ImageModuleTest(unittest.TestCase):
+@@ -664,6 +668,10 @@ class ImageModuleTest(unittest.TestCase):
          )
  
      def test_frombuffer_8bit(self):
@@ -292,7 +292,7 @@ index 6255ebed..e76ab8e7 100644
          """test reading pixel data from a bytes buffer"""
          pygame.display.init()
          eight_bit_palette_buffer = bytearray(
-@@ -1153,6 +1161,10 @@ class ImageModuleTest(unittest.TestCase):
+@@ -1163,6 +1171,10 @@ class ImageModuleTest(unittest.TestCase):
          f.close()
  
      def test_load_extended(self):
@@ -311,16 +311,16 @@ index 00000000..93a1c469
 @@ -0,0 +1 @@
 +__tags__ = ["display"]
 diff --git a/test/mixer_music_test.py b/test/mixer_music_test.py
-index ce0ff7f6..d0b387b4 100644
+index 945b6112..c1f5c017 100644
 --- a/test/mixer_music_test.py
 +++ b/test/mixer_music_test.py
-@@ -241,7 +241,10 @@ class MixerMusicModuleTest(unittest.TestCase):
+@@ -237,6 +237,10 @@ class MixerMusicModuleTest(unittest.TestCase):
          'disk audio driver "playback" writing to disk is slow',
      )
      def test_play__start_time(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          pygame.display.init()
  
@@ -340,10 +340,10 @@ index 00000000..93a1c469
 @@ -0,0 +1 @@
 +__tags__ = ["display"]
 diff --git a/test/surface_test.py b/test/surface_test.py
-index 0ab230bc..61f2e36c 100644
+index 256337e6..59dd3b61 100644
 --- a/test/surface_test.py
 +++ b/test/surface_test.py
-@@ -98,6 +98,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -96,6 +96,10 @@ class SurfaceTypeTest(unittest.TestCase):
          self.assertEqual(r, (0, 0, 255, 255))
  
      def test_set_at__big_endian(self):
@@ -354,7 +354,7 @@ index 0ab230bc..61f2e36c 100644
          """png files are loaded in big endian format (BGR rather than RGB)"""
          pygame.display.init()
          try:
-@@ -134,12 +138,20 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -132,12 +136,20 @@ class SurfaceTypeTest(unittest.TestCase):
              self.assertEqual(surf2.get_flags() & SRCALPHA, SRCALPHA)
  
      def test_flags_default0_nodisplay(self):
@@ -375,7 +375,7 @@ index 0ab230bc..61f2e36c 100644
          """is set to zero, and SRCALPH is not set by default even when the display is initialized."""
          pygame.display.set_mode((320, 200))
          try:
-@@ -164,6 +176,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -162,6 +174,10 @@ class SurfaceTypeTest(unittest.TestCase):
          self.assertRaises(ValueError, make_surf, 32, 0, masks)
  
      def test_get_bounding_rect(self):
@@ -386,7 +386,7 @@ index 0ab230bc..61f2e36c 100644
          surf = pygame.Surface((70, 70), SRCALPHA, 32)
          surf.fill((0, 0, 0, 0))
          bound_rect = surf.get_bounding_rect()
-@@ -321,6 +337,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -319,6 +335,10 @@ class SurfaceTypeTest(unittest.TestCase):
          self.assertTrue(not s2.get_flags() & pygame.RLEACCELOK)
  
      def test_solarwolf_rle_usage(self):
@@ -397,7 +397,7 @@ index 0ab230bc..61f2e36c 100644
          """Test for error/crash when calling set_colorkey() followed
          by convert twice in succession. Code originally taken
          from solarwolf."""
-@@ -349,6 +369,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -347,6 +367,10 @@ class SurfaceTypeTest(unittest.TestCase):
              pygame.display.quit()
  
      def test_solarwolf_rle_usage_2(self):
@@ -408,7 +408,7 @@ index 0ab230bc..61f2e36c 100644
          """Test for RLE status after setting alpha"""
  
          pygame.display.init()
-@@ -380,6 +404,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -378,6 +402,10 @@ class SurfaceTypeTest(unittest.TestCase):
              pygame.display.quit()
  
      def test_set_alpha__set_colorkey_rle(self):
@@ -419,7 +419,7 @@ index 0ab230bc..61f2e36c 100644
          pygame.display.init()
          try:
              pygame.display.set_mode((640, 480))
-@@ -460,6 +488,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -457,6 +485,10 @@ class SurfaceTypeTest(unittest.TestCase):
      ########################################################################
  
      def test_get_bytesize(self):
@@ -430,7 +430,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure a surface's bit and byte sizes can be retrieved."""
          pygame.display.init()
          try:
-@@ -504,6 +536,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -501,6 +533,10 @@ class SurfaceTypeTest(unittest.TestCase):
          'requires a non-"dummy" SDL_VIDEODRIVER',
      )
      def test_get_flags__display_surf(self):
@@ -441,7 +441,7 @@ index 0ab230bc..61f2e36c 100644
          pygame.display.init()
          try:
              # FULLSCREEN
-@@ -545,6 +581,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -542,6 +578,10 @@ class SurfaceTypeTest(unittest.TestCase):
      ########################################################################
  
      def test_get_parent(self):
@@ -452,7 +452,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure a surface's parent can be retrieved."""
          pygame.display.init()
          try:
-@@ -1071,6 +1111,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1067,6 +1107,10 @@ class GeneralSurfaceTests(unittest.TestCase):
          'requires a non-"dummy" SDL_VIDEODRIVER',
      )
      def test_image_convert_bug_131(self):
@@ -463,7 +463,7 @@ index 0ab230bc..61f2e36c 100644
          # bug #131: Unable to Surface.convert(32) some 1-bit images.
          # https://github.com/pygame/pygame/issues/131
  
-@@ -1096,6 +1140,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1092,6 +1136,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_convert_init(self):
@@ -474,7 +474,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure initialization exceptions are raised
          for surf.convert()."""
          pygame.display.quit()
-@@ -1123,6 +1171,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1119,6 +1167,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_convert_alpha_init(self):
@@ -485,7 +485,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure initialization exceptions are raised
          for surf.convert_alpha()."""
          pygame.display.quit()
-@@ -1143,6 +1195,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1139,6 +1191,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_convert_alpha_SRCALPHA(self):
@@ -496,7 +496,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure that the surface returned by surf.convert_alpha()
          has alpha blending enabled"""
          pygame.display.init()
-@@ -1642,6 +1698,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1637,6 +1693,10 @@ class GeneralSurfaceTests(unittest.TestCase):
          self.fail()
  
      def test_convert__pixel_format_as_surface_subclass(self):
@@ -507,7 +507,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure convert accepts a Surface subclass argument."""
          expected_size = (23, 17)
          convert_surface = SurfaceSubclass(expected_size, 0, 32)
-@@ -1660,6 +1720,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1655,6 +1715,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_convert_alpha(self):
@@ -518,7 +518,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure the surface returned by surf.convert_alpha
          has alpha values added"""
          pygame.display.init()
-@@ -1712,6 +1776,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1707,6 +1771,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_convert_alpha__pixel_format_as_surface_subclass(self):
@@ -529,7 +529,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure convert_alpha accepts a Surface subclass argument."""
          expected_size = (23, 17)
          convert_surface = SurfaceSubclass(expected_size, SRCALPHA, 32)
-@@ -1734,6 +1802,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1729,6 +1797,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_get_abs_offset(self):
@@ -540,7 +540,7 @@ index 0ab230bc..61f2e36c 100644
          pygame.display.init()
          try:
              parent = pygame.Surface((64, 64), SRCALPHA, 32)
-@@ -1766,6 +1838,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1761,6 +1833,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              pygame.display.quit()
  
      def test_get_abs_parent(self):
@@ -551,7 +551,7 @@ index 0ab230bc..61f2e36c 100644
          pygame.display.init()
          try:
              parent = pygame.Surface((32, 32), SRCALPHA, 32)
-@@ -1835,6 +1911,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1830,6 +1906,10 @@ class GeneralSurfaceTests(unittest.TestCase):
              )
  
      def test_get_bitsize(self):
@@ -562,7 +562,7 @@ index 0ab230bc..61f2e36c 100644
          pygame.display.init()
          try:
              expected_size = (11, 21)
-@@ -1881,6 +1961,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -1876,6 +1956,10 @@ class GeneralSurfaceTests(unittest.TestCase):
          self.assertEqual(rectangle, (0, 0, 800, 600))
  
      def test_get_colorkey(self):
@@ -573,7 +573,7 @@ index 0ab230bc..61f2e36c 100644
          pygame.display.init()
          try:
              # if set_colorkey is not used
-@@ -2017,6 +2101,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -2011,6 +2095,10 @@ class GeneralSurfaceTests(unittest.TestCase):
          self.assertEqual(surface.get_locks(), ())
  
      def test_get_losses(self):
@@ -584,7 +584,7 @@ index 0ab230bc..61f2e36c 100644
          """Ensure a surface's losses can be retrieved"""
          pygame.display.init()
          try:
-@@ -2324,6 +2412,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -2317,6 +2405,10 @@ class GeneralSurfaceTests(unittest.TestCase):
          )
  
      def test_palette_colorkey(self):
@@ -595,7 +595,7 @@ index 0ab230bc..61f2e36c 100644
          """test bug discovered by robertpfeiffer
          https://github.com/pygame/pygame/issues/721
          """
-@@ -2332,12 +2424,20 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
+@@ -2325,12 +2417,20 @@ class GeneralSurfaceTests(unittest.TestCase):
          self.assertEqual(surf.get_palette()[surf.map_rgb(key)], key)
  
      def test_palette_colorkey_set_px(self):
@@ -617,98 +617,98 @@ index 0ab230bc..61f2e36c 100644
          key = surf.get_colorkey()
          surf.fill(key)
 diff --git a/test/surfarray_test.py b/test/surfarray_test.py
-index 1e76f6d5..2886cdbf 100644
+index 0863da77..d3b62f13 100644
 --- a/test/surfarray_test.py
 +++ b/test/surfarray_test.py
-@@ -134,7 +134,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -134,6 +134,10 @@ class SurfarrayModuleTest(unittest.TestCase):
          return zeros(self.surf_size, dtype)
  
      def test_array2d(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          sources = [
              self._make_src_surface(8),
              self._make_src_surface(16),
-@@ -204,7 +207,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -202,6 +206,10 @@ class SurfarrayModuleTest(unittest.TestCase):
                  )
  
      def test_array_alpha(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          palette = [
              (0, 0, 0, 0),
              (10, 50, 100, 255),
-@@ -271,7 +277,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -268,6 +276,10 @@ class SurfarrayModuleTest(unittest.TestCase):
              surf.set_alpha(blanket_alpha)
  
      def test_array_colorkey(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          palette = [
              (0, 0, 0, 0),
              (10, 50, 100, 255),
-@@ -352,7 +361,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -348,6 +360,10 @@ class SurfarrayModuleTest(unittest.TestCase):
                  del arr
  
      def test_blit_array(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          s = pygame.Surface((10, 10), 0, 24)
          a = pygame.surfarray.array3d(s)
          pygame.surfarray.blit_array(s, a)
-@@ -547,7 +559,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -540,6 +556,10 @@ class SurfarrayModuleTest(unittest.TestCase):
                          )
  
      def test_map_array(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          arr3d = self._make_src_array3d(uint8)
          targets = [
              self._make_surface(8),
-@@ -583,7 +598,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -575,6 +595,10 @@ class SurfarrayModuleTest(unittest.TestCase):
          )
  
      def test_pixels2d(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          sources = [
              self._make_surface(8),
              self._make_surface(16, srcalpha=True),
-@@ -606,7 +624,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -597,6 +621,10 @@ class SurfarrayModuleTest(unittest.TestCase):
          self.assertRaises(ValueError, pygame.surfarray.pixels2d, self._make_surface(24))
  
      def test_pixels3d(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          sources = [self._make_surface(24), self._make_surface(32)]
  
          for surf in sources:
-@@ -636,7 +657,10 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -626,6 +654,10 @@ class SurfarrayModuleTest(unittest.TestCase):
          self.assertRaises(ValueError, do_pixels3d, self._make_surface(16))
  
      def test_pixels_alpha(self):
 +        """
 +        |Tags:display|
- 
++
 +        """
          palette = [
              (0, 0, 0, 0),
              (127, 127, 127, 0),
-@@ -679,12 +703,24 @@ class SurfarrayModuleTest(unittest.TestCase):
+@@ -668,12 +700,24 @@ class SurfarrayModuleTest(unittest.TestCase):
              )
  
      def test_pixels_red(self):
@@ -734,10 +734,10 @@ index 1e76f6d5..2886cdbf 100644
  
      def _test_pixels_rgb(self, operation, mask_posn):
 diff --git a/test/time_test.py b/test/time_test.py
-index 01d97a6d..5ff3e27b 100644
+index 627d9ef1..c333a172 100644
 --- a/test/time_test.py
 +++ b/test/time_test.py
-@@ -272,6 +272,10 @@ class TimeModuleTest(unittest.TestCase):
+@@ -271,6 +271,10 @@ class TimeModuleTest(unittest.TestCase):
              self.assertAlmostEqual(ticks_diff, time_diff, delta=delta)
  
      def test_set_timer(self):
