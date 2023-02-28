@@ -1,11 +1,11 @@
-About pygame
-============
+About pygame-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pygame-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.pygame.org
 
 Package license: LGPL-2.1-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pygame-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python Game Development
 
