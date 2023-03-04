@@ -22,10 +22,11 @@ source:
     - patches/0007-mark-docs-test-broken.patch
     - patches/0008-fix-strict-prototype.patch
     - patches/0009-skip-some-specific-warnings-on-linux-osx.patch
-    - patches/0010-don-t-Werror.patch
+    # backport pygame/pygame#3663, can be dropped for v>2.2
+    - patches/0010-Fixup-deprecation-error-on-MacOS-11.patch
 
 build:
-  number: 0
+  number: 1
   script:
     # despite the name "_unix", this only works for linux, c.f.
     # https://github.com/pygame/pygame/blob/main/buildconfig/config_unix.py
