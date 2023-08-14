@@ -1,4 +1,4 @@
-{% set version = "2.5.0" %}
+{% set version = "2.5.1" %}
 
 package:
   name: pygame
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pygame/pygame/archive/refs/tags/{{ version }}.tar.gz
-  sha256: ada1ba270443018abef7b664b292bcabc6899b91cb2bdf172c5a50ee9e7c1d34
+  sha256: f29d5ca72ec487df8f5f19169d66e6e5cecfcdb841c28b3c711cfd4f263a672a
   patches:
     # make sure we use dependencies from conda-forge (instead of
     # downloading/building them), and that the bespoke config finds them
