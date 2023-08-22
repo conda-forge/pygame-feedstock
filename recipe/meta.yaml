@@ -63,6 +63,7 @@ test:
     - numpy *
   imports:
     - pygame
+    - pygame.base
   commands:
     - pip check
     - set SDL_VIDEODRIVER=dummy  # [win]
