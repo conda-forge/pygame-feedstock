@@ -66,6 +66,7 @@ test:
     - pygame.base
   commands:
     - pip check
+    - python -c "from pygame.base import *"
     - set SDL_VIDEODRIVER=dummy  # [win]
     - set SDL_AUDIODRIVER=disk   # [win]
     - export SDL_VIDEODRIVER=dummy  # [unix]
