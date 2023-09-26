@@ -1,0 +1,45 @@
+From 8953523dc02fdef6231b46fcced2539d29b301ef Mon Sep 17 00:00:00 2001
+From: Tobias Fischer <info@tobiasfischer.info>
+Date: Tue, 10 Jan 2023 13:52:13 +1000
+Subject: [PATCH 10/10] Fixup deprecation error on MacOS 11
+
+---
+ src_c/sdlmain_osx.m | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src_c/sdlmain_osx.m b/src_c/sdlmain_osx.m
+index 603e8078..7a3e6d2d 100644
+--- a/src_c/sdlmain_osx.m
++++ b/src_c/sdlmain_osx.m
+@@ -208,7 +208,7 @@ _ScrapGet(PyObject *self, PyObject *args)
+         Py_RETURN_NONE;
+ 
+     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+-    NSString *info = [[NSPasteboard generalPasteboard]stringForType:NSStringPboardType];
++    NSString *info = [[NSPasteboard generalPasteboard]stringForType:NSPasteboardTypeString];
+     PyObject *ret = NULL;
+ 
+     if (info != nil)
+@@ -263,8 +263,8 @@ _ScrapPut(PyObject *self, PyObject *args)
+     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+     NSPasteboard *pb = [NSPasteboard generalPasteboard];
+     NSString *ndata = [NSString stringWithCString:(char *)data encoding:NSUTF8StringEncoding];
+-    [pb declareTypes: [NSArray arrayWithObject:NSStringPboardType] owner: pb];
+-    [pb setString:ndata forType: NSStringPboardType];
++    [pb declareTypes: [NSArray arrayWithObject:NSPasteboardTypeString] owner: pb];
++    [pb setString:ndata forType: NSPasteboardTypeString];
+     [pool release];
+ #endif
+     Py_RETURN_NONE;
+@@ -318,7 +318,7 @@ _ScrapLost(PyObject *self)
+     PyObject *ret;
+     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+     NSArray *supportedTypes =
+-            [NSArray arrayWithObjects: NSStringPboardType, nil];
++            [NSArray arrayWithObjects: NSPasteboardTypeString, nil];
+     NSString *bestType = [[NSPasteboard generalPasteboard]
+             availableTypeFromArray:supportedTypes];
+     ret = (bestType == nil) ? Py_True : Py_False;
+-- 
+2.38.1.windows.1
+
