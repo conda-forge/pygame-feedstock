@@ -36,12 +36,12 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython==3.0.2.*                        # [build_platform != target_platform]
     - {{ compiler('cxx') }}
     - pkg-config
   host:
     - python
-    - cython
+    - cython==3.0.2.*
     - setuptools
     - pip
     - fontconfig
