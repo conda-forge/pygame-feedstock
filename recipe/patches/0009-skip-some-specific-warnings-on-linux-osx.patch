@@ -12,15 +12,13 @@ diff --git a/setup.py b/setup.py
 index 763d3b22..d61e8f28 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -431,12 +431,16 @@ for e in extensions:
+@@ -457,10 +457,16 @@ def run_install_headers(self):
      if enable_arm_neon:
          e.define_macros.append(('PG_ENABLE_ARM_NEON', '1'))
  
 -    e.extra_compile_args.extend(
 -        # some warnings are skipped here
--        ("/W3", "/wd4142", "/wd4996")
--        if sys.platform == "win32"
--        else ("-Wall", "-Wno-error=unknown-pragmas")
+-        ("/W3", "/wd4142", "/wd4996") if IS_MSC else ("-Wall", "-Wno-error=unknown-pragmas")
 -    )
 +    # some warnings are skipped here
 +    skipped_warnings = ("-Wall", "-Wno-error=unknown-pragmas")
