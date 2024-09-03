@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '16'
+- '17'
 fontconfig:
 - '2'
 freetype:
@@ -40,5 +40,8 @@ sdl2_ttf:
 - '2'
 target_platform:
 - osx-64
+zip_keys:
+- - python
+  - channel_sources
 zlib:
 - '1'
