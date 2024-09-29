@@ -1,4 +1,4 @@
-{% set version = "2.6.0" %}
+{% set version = "2.6.1" %}
 
 package:
   name: pygame
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/pygame/pygame/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 0dc751d9dc30ba97fa7077d855c1a945fc3ecffcaa90a3a4f3fe4c2b7db3a36a
+  sha256: 6a5dd68af93a11ba6eb35c971fa220bf253cebf63b1f54cbe697b30fae9c7c72
   patches:
     # make sure we use dependencies from conda-forge (instead of
     # downloading/building them), and that the bespoke config finds them
@@ -25,7 +25,7 @@ source:
     - patches/0010-don-t-Werror.patch
 
 build:
-  number: 1
+  number: 0
   script:
     # despite the name "_unix", this only works for linux, c.f.
     # https://github.com/pygame/pygame/blob/main/buildconfig/config_unix.py
