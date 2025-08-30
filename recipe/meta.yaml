@@ -55,6 +55,7 @@ requirements:
     - sdl2_image
     - sdl2_mixer
     - sdl2_ttf
+    - xorg-xorgproto    # [linux]
   run:
     - python
 
