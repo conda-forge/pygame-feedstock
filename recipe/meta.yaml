@@ -58,9 +58,6 @@ requirements:
     - xorg-xorgproto    # [linux]
   run:
     - python
-  run_constrained:
-    # avoid mixing sdl2 with sdl3
-    - sdl3 <0.0a0
 
 test:
   requires:
