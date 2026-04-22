@@ -25,7 +25,7 @@ source:
     - patches/0010-don-t-Werror.patch
 
 build:
-  number: 0
+  number: 1
   script:
     # despite the name "_unix", this only works for linux, c.f.
     # https://github.com/pygame/pygame/blob/main/buildconfig/config_unix.py
@@ -55,6 +55,7 @@ requirements:
     - sdl2_image
     - sdl2_mixer
     - sdl2_ttf
+    - xorg-xorgproto    # [linux]
   run:
     - python
 
